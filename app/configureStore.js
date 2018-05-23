@@ -1,24 +1,15 @@
-// import { createStore } from 'redux'
-// import rootReducer from './store'
-
-// export default function configureStore() {
-//   let store = createStore(rootReducer)
-//   return store
-// }
-
 /* eslint global-require: 0 */
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-
+import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk';
 import reducer from './store';
 
-const middlewares = [thunk];
-const enhancer = composeWithDevTools(
-  {
-    // Options: https://github.com/jhen0409/react-native-debugger#options
-  },
-)(applyMiddleware(...middlewares));
+const logger = createLogger({});
+
+const middlewares = [thunk, logger];
+
+const enhancer = composeWithDevTools({})(applyMiddleware(...middlewares));
 
 export default function configureStore(initialState) {
   const store = createStore(

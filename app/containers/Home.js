@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import Header from '@app/components/Header'
 import { Container} from 'native-base';
 import {setTitle} from '../store/header/header.actions'
-import {fetchAllResellers} from '../store/resellers/resellers.actions'
+import {fetchResellers} from '../store/resellers/resellers.actions'
 class Home extends React.Component {
   componentWillMount(){
     const {dispatch} = this.props
     dispatch(setTitle('fsdfsdf'))
-    dispatch(fetchAllResellers('zsdfsf'))
+    dispatch(fetchResellers())
   }
   
   render() {

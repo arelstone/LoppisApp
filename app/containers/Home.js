@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.bgColor
   },
   header: {
     width: '100%'

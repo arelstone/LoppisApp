@@ -24,7 +24,6 @@ export default class Resellers extends PureComponent {
 
 const styles = StyleSheet.create({
     text: {
-        color: colors.textColor
     },
     content: {
     }

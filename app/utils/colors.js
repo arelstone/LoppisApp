@@ -1,5 +1,5 @@
 export default {
     bgColor: '#333333',
-    textColor: '#bebebe',
+    fadedTextColor: '#bebebe',
     blue: '#088bbf'
 }

@@ -5,7 +5,8 @@ import {Header, Resellers, Loading} from '@app/components'
 import { Container, Content, List, ListItem } from 'native-base';
 import {setTitle} from '../store/header/header.actions'
 import {fetchResellers} from '../store/resellers/resellers.actions'
-import colors from '@app/colors'
+import colors from '@utils/colors'
+import { border, flexContainer} from '@utils/style'
 
 class Home extends React.Component {
   constructor(props){
@@ -18,7 +19,6 @@ class Home extends React.Component {
 
   componentDidMount(){
     const {dispatch} = this.props
-    dispatch(setTitle('fsdfsdf'))
     dispatch(fetchResellers())
   }
 
@@ -32,16 +32,15 @@ class Home extends React.Component {
     } = this.props
     
     return (
-      <View style={styles.container}>
-          <Header title={title}/>
-          <Container>
-            <Content>
+          <Container style={[styles.container]}>
+            <Header title={'Loppis'}/>
+          
+            <Content style={[flexContainer]}>
               {loading
                 ? <Loading /> 
-                : <Resellers items={data} />}
+                : <Resellers items={data}/>}
             </Content>
           </Container>
-      </View>
     );
   }
 }
@@ -51,8 +50,6 @@ export default connect(props => props)(Home)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   header: {
     width: '100%'

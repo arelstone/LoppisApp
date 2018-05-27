@@ -1,7 +1,7 @@
 import {
-  RESELLER_REQUEST,
-  RESELLER_SUCCESS,
-  RESELLER_FAILURE
+  RESELLERS_REQUEST,
+  RESELLERS_SUCCESS,
+  RESELLERS_FAILURE
 } from './resellers.actions'
 
 const initialState = {
@@ -28,14 +28,14 @@ function getRequestTime(sendAt){
 export default function resellersReducer(state = initialState, action) {
 
   switch (action.type) {
-    case RESELLER_REQUEST:
+    case RESELLERS_REQUEST:
       return {
         ...state,
         sendAt: Date.now(),
         loading: true,
       }
 
-    case RESELLER_SUCCESS:
+    case RESELLERS_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -43,7 +43,7 @@ export default function resellersReducer(state = initialState, action) {
         ...getRequestTime(state.sendAt)
       };
 
-    case RESELLER_FAILURE:
+    case RESELLERS_FAILURE:
 
     console.log('##', action.payloadRESELLER_)
       return {

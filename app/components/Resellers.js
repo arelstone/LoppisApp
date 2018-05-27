@@ -1,13 +1,18 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {List, ListItem } from 'native-base';
 import {flexContainer, border, fadedText, smallText, marginR} from '@utils/style'
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
-export default class Resellers extends PureComponent {
+export default class Resellers extends Component {
 
-    handleOnPress = (id) => {
-        console.log('###ID', id)
+    constructor(props){
+        super(props)
+    }
+
+    handleOnPress = (item) => {
+        const {navigation} = this.props
+        navigation.navigate('ResellerScreen', {reseller: item})
     }
 
     render() {
@@ -16,7 +21,7 @@ export default class Resellers extends PureComponent {
         return <List style={[flexContainer]}>
             {Boolean(items) && items.map(item => 
             <ListItem key={item.id}
-                onPress={() => this.handleOnPress(item.id)}>
+                onPress={() => this.handleOnPress(item)}>
                 <Grid>
                     <Row>
                         <Text>{item.name}</Text>

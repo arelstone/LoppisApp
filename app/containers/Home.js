@@ -9,6 +9,11 @@ import colors from '@utils/colors'
 import { border, flexContainer} from '@utils/style'
 
 class Home extends React.Component {
+  
+  static navigationOptions = {
+    title: 'Loppis',
+  };
+
   constructor(props){
     super(props)
 
@@ -33,12 +38,10 @@ class Home extends React.Component {
     
     return (
           <Container style={[styles.container]}>
-            <Header title={'Loppis'}/>
-          
             <Content style={[flexContainer]}>
               {loading
                 ? <Loading /> 
-                : <Resellers items={data}/>}
+                : <Resellers items={data} navigation={this.props.navigation}/>}
             </Content>
           </Container>
     );

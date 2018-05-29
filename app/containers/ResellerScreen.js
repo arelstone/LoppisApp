@@ -3,6 +3,7 @@ import {Container, Content, Text, List, ListItem, View, Tabs, Tab} from 'native-
 import {Grid, Col, Row} from 'react-native-easy-grid'
 import {connect} from 'react-redux';
 import {Loading, ResellerInfo} from '@app/components'
+import {headerStyle} from '@utils/style'
 
 import {fetchReseller, resetReseller} from '@app/store/reseller/reseller.actions'
 
@@ -13,8 +14,11 @@ class ResellerScreen extends Component {
     }
 
     static navigationOptions = ({ navigation }) => {
+        const {name} = navigation.getParam('reseller');
+        
         return {
-          title: navigation.getParam('reseller').name,
+            ...headerStyle,
+            title: name
         };
       };
 

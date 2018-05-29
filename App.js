@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './app/configureStore'
 import { Container, Content, StyleProvider } from 'native-base';
 import getTheme from './native-base-theme/components';
-import platform from './native-base-theme/variables/platform';
+import theme from './native-base-theme/variables/material';
 import { border, flexContainer} from '@utils/style'
 
 import Home from '@app/containers/Home';
@@ -28,7 +28,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <StyleProvider style={getTheme(platform)}>
+        <StyleProvider style={getTheme(theme)}>
           <RootStack />
         </StyleProvider>
       </Provider>

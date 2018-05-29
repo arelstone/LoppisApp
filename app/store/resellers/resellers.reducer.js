@@ -21,12 +21,11 @@ export default function resellersReducer(state = initialState, action) {
       }
 
     case RESELLERS_SUCCESS:
-
-    console.log('###state', state.response.data)
+    console.log('###acttion', action, state)
       return {
         ...state,
         loading: false,
-        response: action.payload, // @todo append to state
+        response: {...state.response, ...action.payload}, // @todo append to state
       };
 
     case RESELLERS_FAILURE:

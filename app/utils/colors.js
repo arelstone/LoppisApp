@@ -4,4 +4,7 @@ export default {
     blue: '#088bbf',
     purple: '#A020F0',
     white: '#ffffff',
+    headerBgColor: '#323232',
+    headerTextColor: '#ebebeb',
+    headerIconColor: '#ebebeb',
 }

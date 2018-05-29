@@ -1,17 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import {Header, Resellers, Loading} from '@app/components'
+import {Resellers, Loading, Icon, NavbarIcon} from '@app/components'
 import { Container, Content, List, ListItem } from 'native-base';
 import {setTitle} from '../store/header/header.actions'
 import {fetchResellers} from '../store/resellers/resellers.actions'
-import colors from '@utils/colors'
-import { border, flexContainer} from '@utils/style'
+import { border, flexContainer, headerStyle} from '@utils/style' 
 
 class Home extends React.Component {
   
-  static navigationOptions = {
-    title: 'Loppis',
+  static navigationOptions = ({ navigation }) => {    
+    return {
+      ...headerStyle,
+      title: 'Loppis',
+      headerRight: (
+        <NavbarIcon 
+            icon="add"
+            onPress={ () => Alert.alert('world') }
+        />
+      ),
+      
+    }
   };
 
   constructor(props){

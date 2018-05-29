@@ -1,6 +1,7 @@
-import Header from './Header'
 import Resellers from './Resellers'
 import ResellerInfo from './ResellerInfo'
 import Loading from './Loading'
+import Icon from './Icon'
+import NavbarIcon from './NavbarIcon'
 
-export {Header, Resellers, Loading, ResellerInfo}
+export {Resellers, Loading, ResellerInfo, Icon, NavbarIcon}

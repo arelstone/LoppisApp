@@ -19,3 +19,18 @@ export const smallText = {
 export const marginR = (x) => ({
     marginRight: x
 })
+
+export const navbarButton = {
+    ...border,
+    paddingHorizontal: 15
+}
+
+export const headerStyle = {
+    headerStyle: {
+        backgroundColor: colors.headerBgColor,
+    },
+    headerTintColor: colors.headerTextColor,
+    headerTitleStyle: {
+        fontWeight: 'bold',
+    }
+}

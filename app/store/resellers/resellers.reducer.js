@@ -8,49 +8,32 @@ const initialState = {
   response: {},
   error: {},
   loading: null,
-  sendAt: null,
-  receivedAt: null,
-  requestTime: null,
+  data: {}
 }
 
-function getTime(sent, received) {
-  return (received - sent)
-}
-
-function getRequestTime(sendAt){
-  const now = Date.now();
-
-  return {
-    receivedAt: now,
-    requestTime: getTime(sendAt, now)
-  }
-}
 export default function resellersReducer(state = initialState, action) {
 
   switch (action.type) {
     case RESELLERS_REQUEST:
       return {
         ...state,
-        sendAt: Date.now(),
-        loading: true,
+        loading: state === null ? true : false,
       }
 
     case RESELLERS_SUCCESS:
+
+    console.log('###state', state.response.data)
       return {
         ...state,
         loading: false,
-        response: action.payload,
-        ...getRequestTime(state.sendAt)
+        response: action.payload, // @todo append to state
       };
 
     case RESELLERS_FAILURE:
-
-    console.log('##', action.payloadRESELLER_)
       return {
         ...state,
         loading: false,        
-        error: action.payload,
-        ...getRequestTime(state.sendAt)
+        error: action.payload
 
       }
     default:

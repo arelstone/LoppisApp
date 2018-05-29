@@ -3,8 +3,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk';
-import axios from 'axios'
-import axiosMiddleware from 'redux-axios-middleware';
+
 import reducer from './store';
 
 

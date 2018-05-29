@@ -22,7 +22,7 @@ class Home extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentWillMount(){
     const {dispatch} = this.props
     dispatch(fetchResellers())
   }
@@ -35,7 +35,7 @@ class Home extends React.Component {
         response: {data}
       }
     } = this.props
-    
+    //console.log('###RESELLERS.length', response)
     return (
           <Container style={[styles.container]}>
             <Content style={[flexContainer]}>

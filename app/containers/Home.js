@@ -9,9 +9,7 @@ import { border, flexContainer, headerStyle} from '@utils/style'
 
 class Home extends React.Component {
   
-  static navigationOptions = ({ navigation }) => {    
-    return {
-      ...headerStyle,
+  static navigationOptions = ({ navigation }) => ({    
       title: 'Loppis',
       headerRight: (
         <NavbarIcon 
@@ -19,9 +17,7 @@ class Home extends React.Component {
             onPress={ () => Alert.alert('world') }
         />
       ),
-      
-    }
-  };
+    });
 
   constructor(props){
     super(props)
@@ -33,6 +29,7 @@ class Home extends React.Component {
 
   componentWillMount(){
     const {dispatch} = this.props
+
     dispatch(fetchResellers())
   }
 

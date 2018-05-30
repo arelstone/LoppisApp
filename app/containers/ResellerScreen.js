@@ -14,11 +14,11 @@ class ResellerScreen extends Component {
     }
 
     static navigationOptions = ({ navigation }) => {
-        const {name} = navigation.getParam('reseller');
+        //const {name} = navigation.getParam('reseller');
         
         return {
-            ...headerStyle,
-            title: name
+            //...headerStyle,
+            //title: name
         };
       };
 

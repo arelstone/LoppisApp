@@ -27,10 +27,11 @@ export const navbarButton = {
 
 export const headerStyle = {
     headerStyle: {
-        backgroundColor: colors.headerBgColor,
+        backgroundColor: colors.headerBgColor
     },
     headerTintColor: colors.headerTextColor,
     headerTitleStyle: {
         fontWeight: 'bold',
-    }
+    },
+    
 }

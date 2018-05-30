@@ -10,7 +10,7 @@ import reducer from './store';
 
 const logger = createLogger({});
 
-const middlewares = [thunk, logger];
+const middlewares = [logger, thunk];
 
 const enhancer = composeWithDevTools({})(applyMiddleware(...middlewares));
 

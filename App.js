@@ -5,7 +5,7 @@ import configureStore from './app/configureStore'
 import { Container, Content, StyleProvider } from 'native-base';
 import getTheme from './native-base-theme/components';
 import theme from './native-base-theme/variables/material';
-import { border, flexContainer} from '@utils/style'
+import { border, flexContainer, headerStyle} from '@utils/style'
 
 import Home from '@app/containers/Home';
 import ResellerScreen from '@app/containers/ResellerScreen';
@@ -22,6 +22,7 @@ const RootStack = createStackNavigator({
 },
 {
   initialRouteName: 'Home',
+  navigationOptions: headerStyle
 })
 
 export default class App extends React.Component {

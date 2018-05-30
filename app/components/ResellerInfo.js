@@ -34,7 +34,7 @@ export default connect(state => state)(ResellerInfo)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.purple,
+        backgroundColor: colors.headerBgColor,
     },
     grid: {
         paddingVertical: 50,        

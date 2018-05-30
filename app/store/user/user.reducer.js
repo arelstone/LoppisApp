@@ -1,10 +1,13 @@
-import {SET_TOKEN} from './user.actions'
+import {
+  SET_TOKEN,
+  AUTH_REQUEST,
+  AUTH_SUCCESS,
+  AUTH_FAILURE
+} from './user.actions'
 
 const initialState = {
-    token: '',
-    id: '',
-    name: '',
-    email: ''
+  token: '',
+  user: {}
 }
 
 export default function userReducer(state = initialState, action) {
@@ -12,6 +15,12 @@ export default function userReducer(state = initialState, action) {
     case SET_TOKEN:
       return {
         token: action.payload
+      };
+    case AUTH_SUCCESS:
+      return {
+        token: action.payload.token,
+        user: action.payload.data,
+        
       };
     default:
       return state;

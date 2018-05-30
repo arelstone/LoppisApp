@@ -8,6 +8,7 @@ import theme from './native-base-theme/variables/material';
 import { border, flexContainer, headerStyle} from '@utils/style'
 
 import Home from '@app/containers/Home';
+import LoginScreen from '@app/containers/LoginScreen';
 import ResellerScreen from '@app/containers/ResellerScreen';
 
 
@@ -17,12 +18,15 @@ import { createStackNavigator } from 'react-navigation';
 
 
 const RootStack = createStackNavigator({
+  LoginScreen: LoginScreen,
   Home: Home,
   ResellerScreen: ResellerScreen,
 },
 {
-  initialRouteName: 'Home',
-  navigationOptions: headerStyle
+  initialRouteName: 'LoginScreen',
+  navigationOptions: {
+    ...headerStyle
+  }
 })
 
 export default class App extends React.Component {

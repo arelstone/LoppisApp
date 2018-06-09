@@ -6,6 +6,7 @@ import {
     showToast
 } from '@utils/toastUtils'
 
+import I18n from '@i18n'
 
 export const SET_TOKEN = 'SET_TOKEN'
 export const AUTH_REQUEST = 'AUTH_REQUEST'
@@ -64,12 +65,11 @@ export function handleAuth(credentials) {
                 type: AUTH_SUCCESS,
                 payload: response.data
             }))
-            .then(() => showToast({
-                text: 'Welcome! You are now loggedin'
-            }))
+            //.then((action) => console.log('###', action.payload.data.name))
+            .then(action =>showToast({text: I18n.t('Welcome', {name:action.payload.data.name})}))
             .catch(error => {
                 showToast({
-                    text: 'Wrong credentials',
+                    text: I18n.t('Your credentials was not found'),
                     type: 'warning'
                 })
                 

@@ -8,6 +8,7 @@ import {Container, Content, Text, Button} from 'native-base'
 import {LoginForm} from '@app/forms'
 import {Form} from '@app/components'
 import {handleAuth} from '../store/user/user.actions'
+import I18n from '@i18n'
 
 class LoginScreen extends Component {
 
@@ -35,13 +36,13 @@ class LoginScreen extends Component {
                         block
                         onPress={() => this.handleSubmit()}
                     >
-                        <Text>Login</Text>
+                        <Text>{I18n.t("Login")}</Text>
                     </Button>
                     <Button 
                         block
                         onPress={() => navigation.navigate('RegisterScreen')}
                     >
-                        <Text>Dont have an account? Register here!</Text>
+                        <Text>{I18n.t('Don\'t have an account?')}</Text>
                     </Button>
                 </Content>
             </Container>

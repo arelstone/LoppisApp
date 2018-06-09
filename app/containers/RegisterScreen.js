@@ -5,9 +5,8 @@ import {connect} from 'react-redux'
 import {Text, Content, Container, Button, Toast} from 'native-base'
 import {Form} from '@app/components'
 import {RegisterForm} from '@app/forms'
-import uuid from 'uuid/v1'
 import {handleRegister} from '../store/user/user.actions'
-
+import I18n from '@i18n'
 class RegisterScreen extends Component {
 
     handleSubmit = async () => {
@@ -27,20 +26,12 @@ class RegisterScreen extends Component {
                 <Form
                     fields={RegisterForm} 
                     values={c => this.registerForm = c}
-                    formData={
-                        {
-                            name: 'Carsten',
-                            email: `arelstone+${uuid()}@gmail.com`, 
-                            password: '!!foobar111',
-                            password_confirmation: '!!foobar111',
-                        }
-                    }
                 />
                 <Button 
                         block
                         onPress={() => this.handleSubmit()}
                     >
-                        <Text>Signup</Text>
+                        <Text>{I18n.t("Signup")}</Text>
                     </Button>
             </Content>
         </Container>

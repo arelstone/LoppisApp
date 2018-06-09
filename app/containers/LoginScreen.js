@@ -11,12 +11,6 @@ import {handleAuth} from '../store/user/user.actions'
 
 class LoginScreen extends Component {
 
-    static navigationOptions = ({navigator}) => {
-        return {
-            title: 'Login to Loppis'
-        }
-    }
-
     handleSubmit = async () => {
         const {dispatch, navigation} = this.props
         const {email, password} =  this.loginForm.getValues()
@@ -26,11 +20,10 @@ class LoginScreen extends Component {
 
     }
 
-    formData = () => {
-        return         
-    }
 
     render() {
+        const { navigation} = this.props
+        
         return <Container>
                 <Content>
                     <Form
@@ -39,9 +32,16 @@ class LoginScreen extends Component {
                         formData={{email: 'arelstone@gmail.com', password: '!!foobar111'}}
                     />
                     <Button 
+                        block
                         onPress={() => this.handleSubmit()}
                     >
                         <Text>Login</Text>
+                    </Button>
+                    <Button 
+                        block
+                        onPress={() => navigation.navigate('RegisterScreen')}
+                    >
+                        <Text>Dont have an account? Register here!</Text>
                     </Button>
                 </Content>
             </Container>

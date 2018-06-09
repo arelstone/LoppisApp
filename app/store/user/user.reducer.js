@@ -2,12 +2,14 @@ import {
   SET_TOKEN,
   AUTH_REQUEST,
   AUTH_SUCCESS,
-  AUTH_FAILURE
+  AUTH_FAILURE,
+  REGISTER_REQUEST
 } from './user.actions'
 
 const initialState = {
   token: '',
-  user: {}
+  user: {},
+  loading: false,
 }
 
 export default function userReducer(state = initialState, action) {
@@ -20,8 +22,12 @@ export default function userReducer(state = initialState, action) {
       return {
         token: action.payload.token,
         user: action.payload.data,
-        
       };
+    case REGISTER_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
     default:
       return state;
   }

@@ -6,8 +6,6 @@ export const RESELLERS_FAILURE = 'RESELLERS_FAILURE'
 
 export function fetchResellers(page = 1) {
     return (dispatch, getState) => {
-
-        //console.log('###state', getState().resellers.response)
         dispatch({
             type: RESELLERS_REQUEST
         })
@@ -16,12 +14,12 @@ export function fetchResellers(page = 1) {
                 type: RESELLERS_SUCCESS,
                 payload: response.data
             }))
-            .then(resp => {
+            /*.then(resp => {
                 if (getState().resellers.response.links.next) {
                     const nextPage = getState().resellers.response.links.next.split('?page=')[1]
                     dispatch(fetchResellers(nextPage))
                 }
-            })
+            })*/
             .catch(error => dispatch({
                 type: RESELLERS_FAILURE,
                 payload: error.response

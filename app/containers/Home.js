@@ -1,53 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
-import {Resellers, Loading, Icon, NavbarIcon} from '@app/components'
-import { Container, Content, List, ListItem } from 'native-base';
-import {setTitle} from '../store/header/header.actions'
-import {fetchResellers} from '../store/resellers/resellers.actions'
-import { border, flexContainer, headerStyle} from '@utils/style' 
+import { Container, Content} from 'native-base';
 
 class Home extends React.Component {
   
   static navigationOptions = ({ navigation }) => ({    
-      title: 'Loppis',
-      headerRight: (
-        <NavbarIcon 
-            icon="add"
-            onPress={ () => Alert.alert('world') }
-        />
-      ),
+      title: 'Loppe Guiden',
     });
 
-  constructor(props){
-    super(props)
-
-    this.state = {
-      resellers: {}
-    }
-  }
-
-  componentWillMount(){
-    const {dispatch} = this.props
-
-    dispatch(fetchResellers())
-  }
 
   render() {
-    const {
-      header: {title},
-      resellers: {
-        loading,
-        response: {data}
-      }
-    } = this.props
-    //console.log('###RESELLERS.length', response)
     return (
-          <Container style={[styles.container]}>
-            <Content style={[flexContainer]}>
-              {loading
-                ? <Loading /> 
-                : <Resellers items={data} navigation={this.props.navigation}/>}
+          <Container>
+            <Content>
+              <Text>Hello world</Text>
             </Content>
           </Container>
     );

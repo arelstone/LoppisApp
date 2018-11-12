@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import userReducer from './user/user.reducer'
+import user from './user/user.reducer'
+import auctionHouse from './auctionHouses/auctionHouse.reducer'
 
 const rootReducer = combineReducers({
-    userReducer
+    user,
+    auctionHouse
 })
 
 export default rootReducer

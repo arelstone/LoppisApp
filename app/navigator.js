@@ -1,14 +1,13 @@
 import { createStackNavigator } from 'react-navigation';
 import { headerStyle } from '@utils/style'
-
-import Home from '@app/containers/Home';
+import HomeScreen from '@app/containers/Home';
 
 
 const StackNavigator = createStackNavigator({
-    Home
+  HomeScreen,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'HomeScreen',
     navigationOptions: {
       ...headerStyle
     }

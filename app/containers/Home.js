@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { fetchAuctionHouses } from '@store/auctionHouses/auctionHouse.actions';
 import { smallText, microText, bigText, boldText, mb, fadedText } from '@utils/style';
 import { Container, Content, List, ListItem, Row, Col, Left, Thumbnail } from 'native-base';
-import StarRating from 'react-native-star-rating';
 import colors from '../utils/colors';
+import {Rating} from '@components'
 
 class Home extends React.Component {
 
@@ -28,10 +28,10 @@ class Home extends React.Component {
 			<Container>
 				<Content>
 					<List dataArray={items}
-						onEndReached={() => {console.log('here');}}
+						onEndReached={() => {console.log('onEndReached');}}
 						renderRow={(item) => <ListItem
 							noIndent
-							style={{ paddingVertical: 5, backgroundColor: colors.white }}
+							style={styles.listStyle}
 						>
 							<Col>
 								<Text style={[bigText, boldText]}>{item.name}</Text>
@@ -39,13 +39,7 @@ class Home extends React.Component {
 								<Text style={[microText, fadedText]}>{item.address}, {item.city}</Text>
 							</Col>
 							<Col>
-								{<StarRating
-									maxStars={5}
-									rating={item.rating || 0}
-									halfStarEnabled
-									disabled
-									starSize={15}
-								/>}
+								<Rating rating={item.rating}/>
 							</Col>
 						</ListItem>}
 					/>
@@ -54,4 +48,12 @@ class Home extends React.Component {
 		);
 	}
 }
+
 export default connect(props => props)(Home);
+
+const styles = StyleSheet.create({
+	listStyle: {
+		paddingVertical: 5,
+		backgroundColor: colors.white
+	}
+})

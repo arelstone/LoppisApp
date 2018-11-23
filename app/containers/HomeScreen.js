@@ -8,12 +8,7 @@ import colors from '../utils/colors';
 import {Loading, Rating} from '@components'
 import {t} from '@i18n'
 
-class Home extends React.Component {
-
-	static navigationOptions = ({ navigation }) => ({
-		title: t('HOME_SCREEN_TITLE'),
-	});
-
+class HomeScreen extends React.Component {
 	componentWillMount(){
 		const { dispatch } = this.props;
 
@@ -52,7 +47,7 @@ class Home extends React.Component {
 	}
 }
 
-export default connect(props => props)(Home);
+export default connect(props => props)(HomeScreen);
 
 const styles = StyleSheet.create({
 	listStyle: {

@@ -9,12 +9,14 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-easy-grid": "^0.1.17",
+    "react-native-form-builder": "^1.0.16",
+    "react-native-gesture-handler": "^1.0.9",
     "react-native-i18n": "^2.0.12",
     "react-native-indicators": "^0.13.0",
     "react-native-star-rating": "^1.1.0",
-    "react-navigation": "^2.0.4",
+    "react-navigation": "^3.0.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0", 
+    "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
@@ -34,5 +36,4 @@
   "jest": {
     "preset": "react-native"
   }
-  
 }

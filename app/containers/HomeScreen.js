@@ -9,6 +9,12 @@ import {Loading, Rating} from '@components'
 import {t} from '@i18n'
 
 class HomeScreen extends React.Component {
+
+	static navigationOptions = {
+		title: t('HOME_SCREEN_TITLE'),
+	  };
+
+
 	componentWillMount(){
 		const { dispatch } = this.props;
 

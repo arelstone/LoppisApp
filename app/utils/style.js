@@ -21,3 +21,14 @@ export const boldText = {
 export const smallText = {
     fontSize: 12
 }
+export const microText = {
+    fontSize: 10
+}
+
+export const fadedText = {
+    color: colors.fadedTextColor
+}
+
+export const mb = {
+    marginBottom: 10
+}

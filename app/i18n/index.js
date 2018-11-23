@@ -8,5 +8,7 @@ I18n.defaultLocale = 'da'
 I18n.translations = {
   da
 };
- 
+
+export const t = textKey => I18n.t(textKey);
+
 export default I18n;

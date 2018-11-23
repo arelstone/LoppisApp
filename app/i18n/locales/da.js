@@ -1,3 +1,4 @@
 export default {
-  "Login": "Logind"
+  'LOADING': 'Arbejder...',
+  'HOME_SCREEN_TITLE': 'Loppe Guiden'
 };

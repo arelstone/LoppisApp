@@ -4,7 +4,7 @@ import configureStore from './app/configureStore'
 import { StyleProvider, Root } from 'native-base';
 import getTheme from './native-base-theme/components';
 import theme from './native-base-theme/variables/platform';
-import StackNavigator from './app/navigator'
+import {AppNavigationStack} from './app/navigator'
 
 const store = configureStore()
 
@@ -14,7 +14,7 @@ export default class App extends React.Component {
       <Provider store={store}>
         <StyleProvider style={getTheme(theme)}>
           <Root>
-            <StackNavigator />  
+            <AppNavigationStack />  
           </Root>
         </StyleProvider>
       </Provider>

@@ -3,7 +3,7 @@ import { headerStyle } from '@utils/style'
 import HomeScreen from '@app/containers/Home';
 
 
-const StackNavigator = createStackNavigator({
+export const AppNavigationStack = createStackNavigator({
   HomeScreen,
   },
   {
@@ -12,5 +12,3 @@ const StackNavigator = createStackNavigator({
       ...headerStyle
     }
   })
-
-  export default StackNavigator

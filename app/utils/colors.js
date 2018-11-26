@@ -7,4 +7,5 @@ export default {
     headerBgColor: '#323232',
     headerTextColor: '#ebebeb',
     headerIconColor: '#ebebeb',
+    validationErrorText: '#d9534f'
 }

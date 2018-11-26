@@ -10,9 +10,6 @@ import Navigation from '@app/navigation'
 
 const store = configureStore()
 
-
-
-
 export default class App extends React.Component {
   render() {
     return (
@@ -26,3 +23,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+console.ignoredYellowBox = ['Warning: isMounted(...) is deprecated'];

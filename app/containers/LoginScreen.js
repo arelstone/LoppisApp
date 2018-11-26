@@ -1,8 +1,10 @@
 import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Button, Text} from 'native-base';
 import {Input} from '@components'
 import Validator from 'validator';
+import {login} from '@store/user/user.actions'
 
 class LoginScreen extends React.Component {
 
@@ -10,13 +12,12 @@ class LoginScreen extends React.Component {
 		super(props);
 		this.state = {
 			form: {
-				email: '',
-				password: '',
-				name: '',
+				email: 'arelstone@gmail.com',
+				password: '!!foobar111',
 			},
-			validationErrors : {
+			validationErrors: {
 				email: '',
-				password: '',
+				password: ''
 			}
 		}
 	}
@@ -28,29 +29,69 @@ class LoginScreen extends React.Component {
 				<Form>
 					<Input
 						label="Email"
-						onTextChange={value => this.handleOnTextChange('email', value)}
 						value={form.email}
 						validationError={validationErrors.email}
+						onTextChange={value => this.handleOnTextChange('email', value)}
+						onEndEditing={e => this.handleInputValidation('email', e)}
+						autoCorrect={false}
 					/>
 					<Input
-						label="Password"
-						onTextChange={value => this.handleOnTextChange('password', value)}
-						value={form.password}
 						secureTextEntry
+						label="Password"
+						value={form.password}
+						validationError={validationErrors.password}
+						onTextChange={value => this.handleOnTextChange('password', value)}
+						onEndEditing={e => this.handleInputValidation('password', e)}
 					/>
-					<Input
-						label="Name"
-						onTextChange={value => this.handleOnTextChange('name', value)}
-						value={form.name}
-					/>
-					<Button onPress={this.handleOnButtonPress}>
-						<Text>dfgdfgdfg</Text>
-					</Button>
+					<View style={styles.buttonContainer}>
+						<Button onPress={this.handleOnButtonPress}>
+							<Text>Login</Text>
+						</Button>
+					</View>
 				</Form>
 			</Content>
 		</Container>
 	}
 
+
+	handleInputValidation = (key, {nativeEvent: {text}}) => {
+		switch (key) {
+			case 'email': {
+				if (Validator.isEmpty(text)) {
+					return this.handleSetValidationError(key, 'Is empty')
+				}
+				
+				if (!Validator.isEmail(text)) {
+					return this.handleSetValidationError(key, 'Is not a email')
+				}
+				
+				return this.handleSetValidationError(key, null);
+			}
+			case 'password': {
+				if (Validator.isEmpty(text)) {
+					return this.handleSetValidationError(key, 'Is empty')
+				}
+
+				if (!Validator.isLength(text, {min: 8})) {
+					return this.handleSetValidationError(key, 'Is too short')
+
+				}
+				
+				return this.handleSetValidationError(key, null);
+			}
+			default: return true;
+		}
+	}
+
+	handleSetValidationError = (key, value) => {
+		this.setState({
+			validationErrors: {
+				...this.state.validationErrors,
+				[key]: value
+			}
+		})
+	}
+	
 	handleOnTextChange = (key, value) => {
 		this.setState({
 			form: {
@@ -61,34 +102,17 @@ class LoginScreen extends React.Component {
 	}
 
 	handleOnButtonPress = () => {
-		this.setState({
-			validationErrors: validate(this.state.form)
-		})
+		const {dispatch} = this.props;
+		const {form} = this.state;
+
+		dispatch(login(form))
 	}
 };
 
-const validate = values => {
-	const {email, password} = values;
-	const errors = {
-		email: '',
-		password: '',
-		name: ''
-	}
-
-	if (Validator.isEmpty(email)) {
-		errors = 'Cannot be empty'
-	}
-
-	if (Validator.isLength(email, {min: 8})) {
-		errors = 'Less then 8 charaters'
-	}	
-
-	if (!Validator.isEmail(email)) {
-		errors = 'Is not a valid email'
-	}
-
-	return errors;
-}
-
-
 export default connect(state => state)(LoginScreen);
+
+const styles = StyleSheet.create({
+	buttonContainer: {
+		marginVertical: 30
+	}
+})

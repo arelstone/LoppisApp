@@ -1,23 +1,17 @@
 import {
-	SET_TOKEN,
 	AUTH_START,
 	AUTH_SUCCESS,
 	AUTH_FAILED
 } from './user.actions'
 
 const initialState = {
-	email: '',
-	name: '',
-	token: '',
+	email: null,
+	name: null,
 	loading: false,
 }
 
 export default function userReducer(state = initialState, action) {
 	switch (action.type) {
-		case SET_TOKEN:
-			return {
-				token: action.payload
-			};
 		case AUTH_START:
 			return {
 				...state,
@@ -27,7 +21,8 @@ export default function userReducer(state = initialState, action) {
 			return {
 				...state,
 				loading: false,
-				...action.payload
+				email: action.payload.email,
+				name: action.payload.name,
 			};
 		default:
 			return state;

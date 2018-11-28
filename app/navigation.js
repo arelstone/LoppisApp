@@ -7,10 +7,12 @@ import {
 import HomeScreen from '@containers/HomeScreen'
 import UserScreen from '@containers/UserScreen'
 import LoginScreen from '@containers/LoginScreen'
+import AuctionHouseScreen from '@containers/AuctionHouseScreen'
 
 
 const HomeStack = createStackNavigator({
-	Home: HomeScreen
+	Home: HomeScreen,
+	AuctionHouse: AuctionHouseScreen
 });
 
 const UserStack = createStackNavigator({

@@ -3,14 +3,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk';
-
+import {apiMiddleware} from '@api'
 import reducer from './store';
 
 
 
 const logger = createLogger({});
 
-const middlewares = [logger, thunk];
+const middlewares = [logger, thunk, apiMiddleware];
 
 const enhancer = composeWithDevTools({})(applyMiddleware(...middlewares));
 

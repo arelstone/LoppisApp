@@ -23,7 +23,8 @@ class HomeScreen extends React.Component {
 
 	render() {
 		const {
-			auctionHouse: { items, loading }
+			auctionHouse: { items, loading },
+			navigation
 		} = this.props;
 
 		return (
@@ -35,6 +36,10 @@ class HomeScreen extends React.Component {
 							renderRow={(item) => <ListItem
 								noIndent
 								style={styles.listStyle}
+								onPress={()=>{ navigation.navigate('AuctionHouse', {
+									id: item.id, 
+									title: item.name
+								})}}
 							>
 								<Col>
 									<Text style={[bigText, boldText]}>{item.name}</Text>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Content, Form, Button, Text} from 'native-base';
 import {Input} from '@components'
 import Validator from 'validator';
-import {login} from '@store/user/user.actions'
+import {login} from '@store/auth/auth.actions'
 
 class LoginScreen extends React.Component {
 
@@ -46,6 +46,11 @@ class LoginScreen extends React.Component {
 					<View style={styles.buttonContainer}>
 						<Button onPress={this.handleOnButtonPress}>
 							<Text>Login</Text>
+						</Button>
+					</View>
+					<View style={styles.buttonContainer}>
+						<Button onPress={() => this.props.navigation.navigate('Home')}>
+							<Text>Home</Text>
 						</Button>
 					</View>
 				</Form>

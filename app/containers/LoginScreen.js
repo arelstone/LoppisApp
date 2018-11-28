@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Content, Form, Button, Text} from 'native-base';
 import {Input} from '@components'
 import Validator from 'validator';
-import {login} from '@store/auth/auth.actions'
+import {login, logout} from '@store/auth/auth.actions'
 
 class LoginScreen extends React.Component {
 
@@ -23,6 +23,7 @@ class LoginScreen extends React.Component {
 	}
 	render(){
 		const {form, validationErrors} = this.state
+		const {dispatch} = this.props;
 
 		return <Container>
 			<Content padder>
@@ -46,11 +47,6 @@ class LoginScreen extends React.Component {
 					<View style={styles.buttonContainer}>
 						<Button onPress={this.handleOnButtonPress}>
 							<Text>Login</Text>
-						</Button>
-					</View>
-					<View style={styles.buttonContainer}>
-						<Button onPress={() => this.props.navigation.navigate('Home')}>
-							<Text>Home</Text>
 						</Button>
 					</View>
 				</Form>
@@ -106,11 +102,12 @@ class LoginScreen extends React.Component {
 		})
 	}
 
-	handleOnButtonPress = () => {
-		const {dispatch} = this.props;
+	handleOnButtonPress = async () => {
+		const {dispatch, navigation} = this.props;
 		const {form} = this.state;
 
-		dispatch(login(form))
+		await dispatch(login(form))
+		navigation.navigate('Home')
 	}
 };
 

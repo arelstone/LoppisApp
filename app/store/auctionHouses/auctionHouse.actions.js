@@ -1,18 +1,14 @@
-import http from '@api'
-
 export const AUCTION_HOUSE_START = 'AUCTION_HOUSE_START'
 export const AUCTION_HOUSE_SUCCESS = 'AUCTION_HOUSE_SUCCESS'
-
+export const AUCTION_HOUSE_ERROR = 'AUCTION_HOUSE_ERROR'
 
 export const fetchAuctionHouses = () => async dispatch => {
-
     await dispatch({
-        type: AUCTION_HOUSE_START
-    })
-    const payload = await http.get('/auction-houses')
-
-    await dispatch({
-        type: AUCTION_HOUSE_SUCCESS,
-        payload
+        url: '/auction-houses',
+        types: {
+            start: AUCTION_HOUSE_START,
+            success: [AUCTION_HOUSE_SUCCESS],
+            error: AUCTION_HOUSE_ERROR
+        },
     })
 }

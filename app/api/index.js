@@ -83,9 +83,11 @@ const onError = (error, dispatch, types) => {
 
 const onSuccess = (response, dispatch, types) => {
 	const payload = response.data.data;
-	const success = Array.from(types.success);
+	if (typeof types.success !== 'object') {
+		throw new Error('Success types is not an array')
+	}
 
-	return success.forEach(type => dispatch({
+	return types.success.forEach(type => dispatch({
 		type,
 		payload,
 	}));

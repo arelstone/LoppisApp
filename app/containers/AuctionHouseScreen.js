@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {View, Text, Header, Body, Title} from 'native-base';
+import {View, Text, Tab, Tabs, Header} from 'native-base';
 import {navigationStyle} from '@utils/style'
-
+import {getReviews} from '@store/auctionHouses/auctionHouse.actions'
+//import {Reviews} from '@components'
 class AuctionHouseScreen extends React.Component {
 
 	static navigationOptions = ({ navigation }) => {
@@ -12,17 +13,23 @@ class AuctionHouseScreen extends React.Component {
 		};
 	};
 
+
 	render(){
+		const {auctionHouse, reviews} = this.props
+		
 		return <View>
-			<Text>AuctionHouseScreen</Text>
+			<Text>wefsdfsdf</Text>
 		</View>
 	}
 };
 
-const mapStateToProps = (state, ownProps) => {
+
+
+const mapStateToProps = (props, ownProps) => {
+	const auctionHouse = props.auctionHouse.items.find(item => item.id === ownProps.navigation.getParam('id'));
 	return {
-		auctionHouse: state.auctionHouse.items.find(item => item.id === ownProps.navigation.getParam('id')),
-		user: state.user,
+		auctionHouse,
+		reviews: auctionHouse.reviews,
 	}
 }
 

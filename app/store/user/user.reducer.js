@@ -1,8 +1,8 @@
 import {
 	AUTH_START,
 	AUTH_SUCCESS,
-	AUTH_FAILED
-} from './user.actions'
+	RESET_LOCAL_STATE
+} from '@store/auth/auth.actions'
 
 const initialState = {
 	email: null,
@@ -24,6 +24,8 @@ export default function userReducer(state = initialState, action) {
 				email: action.payload.email,
 				name: action.payload.name,
 			};
+		case RESET_LOCAL_STATE:
+			return initialState;
 		default:
 			return state;
 	}

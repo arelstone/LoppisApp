@@ -1,5 +1,6 @@
 import {
-	SET_TOKEN
+	AUTH_SET_TOKEN,
+	RESET_LOCAL_STATE
 } from './auth.actions'
 
 const initialState = {
@@ -8,10 +9,12 @@ const initialState = {
 
 export default function authReducer(state = initialState, action) {
 	switch (action.type) {
-		case SET_TOKEN:
+		case AUTH_SET_TOKEN:
 			return {
 				token: action.payload.token
 			};
+		case RESET_LOCAL_STATE:
+			return initialState;
 		default:
 			return state;
 	}

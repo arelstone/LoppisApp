@@ -1,9 +1,12 @@
-import {AUTH_SUCCESS, AUTH_START, AUTH_FAILED} from '@store/user/user.actions'
-export const SET_TOKEN = 'SET_TOKEN'
+export const AUTH_SET_TOKEN = 'AUTH_SET_TOKEN'
+export const AUTH_START = 'AUTH_START'
+export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const AUTH_FAILED = 'AUTH_FAILED'
+export const RESET_LOCAL_STATE = 'RESET_LOCAL_STATE'
+
 
 export const login = ({email, password}) => async dispatch => {
-	
-	dispatch({
+	return await dispatch({
 		url: '/login',
 		method: 'post',
 		body: {
@@ -12,12 +15,14 @@ export const login = ({email, password}) => async dispatch => {
 		},
 		types: {
 			start: AUTH_START,
-			success: [SET_TOKEN, AUTH_SUCCESS],
+			success: [AUTH_SET_TOKEN, AUTH_SUCCESS],
 			error: AUTH_FAILED
 		}
 	})
-	
+}
 
-	return;
-
+export const logout = () => async dispatch => {
+	return await dispatch({
+		type: RESET_LOCAL_STATE
+	})
 }

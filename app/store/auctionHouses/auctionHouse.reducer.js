@@ -1,6 +1,6 @@
 import {
   AUCTION_HOUSE_START,
-  AUCTION_HOUSE_SUCCESS,
+  AUCTION_HOUSE_SUCCESS
 } from './auctionHouse.actions'
 
 const initialState = {
@@ -22,8 +22,8 @@ export default function auctionHouseReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.data.data,
-        links: action.payload.data.links
+        items: action.payload,
+        links: action.payload.links
       }
     default:
       return state;

@@ -1,7 +1,14 @@
 {
-  "name": "LoppisApp",
+  "name": "loppis-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest",
+    "clean": "rm -rf ./node_modules ios/build"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "native-base": "^2.4.5",
@@ -28,12 +35,6 @@
     "react-test-renderer": "16.3.1",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6"
-  },
-  "scripts": {
-    "start": "react-native start",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "test": "jest"
   },
   "jest": {
     "preset": "react-native"
